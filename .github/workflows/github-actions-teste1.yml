@@ -1,0 +1,18 @@
+name: GitHub Actions 
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 O job foi executado automaticamente pelo evento ${{ github.event_name }}."
+      - run: echo "🐧 O job ta rodando em um ${{ runner.os }} hospedado pelo GitHub!"
+      - run: echo "🔎 O nome da branch é ${{ github.ref }} e o repositório é  ${{ github.repository }}."
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "💡 O ${{ github.repository }} repositório foi clonado."
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 O status do job é ${{ job.status }}."
